@@ -7,8 +7,15 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
   <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5cac7e90-4648-43ec-a523-f16a3bbe0749" >
     <http:listener-connection host="0.0.0.0" port="8081" />
   </http:listener-config>
+  <http:listener-config name="HTTP_Listener_NoMaster" doc:name="HTTP Listener config" doc:id="3a8a8a81-e321-4be4-bd70-51d2fdde0afa" >
+    <http:listener-connection host="0.0.0.0" port="8087" />
+  </http:listener-config>
   <flow name="gitex1Flow" doc:id="d7a49ee0-c009-4df7-892c-de4fda42ad29" >
     <http:listener doc:name="Listener" doc:id="64889cb2-d79d-4b7e-a7c5-95923e0f5d9e" config-ref="HTTP_Listener_config" path="/gitex1"/>
     <logger level="INFO" doc:name="Logger" doc:id="f8613474-6422-45d3-a862-6637c7c847d0" />
+  </flow>
+  <flow name="FlowNOMaster" doc:id="50c12d15-bfc2-42f1-8eb4-5c5aab33b02a" >
+    <http:listener doc:name="Listener" doc:id="6155287b-f355-4c5a-84c7-087957e22597" config-ref="HTTP_Listener_NoMaster" path="/nomaster"/>
+    <set-payload value="#[payload]" doc:name="Set Payload" doc:id="192356af-7dd4-44a1-a7e0-a465d9eddf93" />
   </flow>
 </mule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+  <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5cac7e90-4648-43ec-a523-f16a3bbe0749" >
+    <http:listener-connection host="0.0.0.0" port="8081" />
+  </http:listener-config>
+  <flow name="gitex1Flow" doc:id="d7a49ee0-c009-4df7-892c-de4fda42ad29" >
+    <http:listener doc:name="Listener" doc:id="64889cb2-d79d-4b7e-a7c5-95923e0f5d9e" config-ref="HTTP_Listener_config" path="/gitex1"/>
+  </flow>
+</mule>
